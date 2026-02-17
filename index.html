@@ -6,23 +6,17 @@
 <title>طراحی و نصب سیستم پیکور | هیدروشیلنگ وحید</title>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
 <style>
-/* فونت و بدنه */
 body{
   margin:0;
   font-family:'Vazirmatn',sans-serif;
-  background:#f0f2f5;
+  background:#ffffff;
   color:#222;
   line-height:1.8;
 }
 
 /* هدر */
 header{
-  background:#16324F; /* آبی صنعتی تک رنگ */
-  color:white;
-  padding:80px 20px;
-  text-align:center;
-}
-
+  background:#0f4c81;
   color:white;
   padding:80px 20px;
   text-align:center;
@@ -35,8 +29,7 @@ header p{
   font-size:18px;
   margin-bottom:20px;
 }
-
-/* دکمه تماس */
+/* دکمه تماس فوری بدون بوردر */
 .btn{
   display:inline-block;
   background:#0f4c81;
@@ -60,37 +53,36 @@ header p{
   padding:60px 0;
 }
 
-/* کارت های خدمات */
+/* کارت های خدمات کوچکتر */
 .services{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:20px;
   margin-top:-50px;
 }
 .card{
   background:white;
-  padding:25px;
-  border-radius:15px;
-  box-shadow:0 8px 25px rgba(0,0,0,0.15);
-  border:2px solid #0f4c81;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.15);
   text-align:center;
   transition:0.4s;
 }
 .card:hover{
-  transform:translateY(-10px) scale(1.03);
-  box-shadow:0 15px 35px rgba(0,0,0,0.2);
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 12px 30px rgba(0,0,0,0.2);
 }
 
-/* بخش گالری عکس و ویدیو */
+/* گالری عکس ها 4 تا */
 .gallery{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:20px;
   margin-bottom:40px;
 }
 .gallery-item{
   background:#ddd;
-  height:150px;
+  height:200px;
   border-radius:12px;
   display:flex;
   align-items:center;
@@ -104,7 +96,30 @@ header p{
   box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
-/* بخش توضیحات */
+/* ویدیو ها 2 تا عمودی */
+.videos{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+  margin-bottom:40px;
+}
+.video-item{
+  background:#ccc;
+  height:300px; /* عمودی بزرگتر */
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  color:#333;
+  transition:0.3s;
+}
+.video-item:hover{
+  transform:scale(1.05);
+  box-shadow:0 12px 30px rgba(0,0,0,0.3);
+}
+
+/* توضیحات */
 .text-section{
   background:white;
   padding:40px 25px;
@@ -135,7 +150,6 @@ header p{
 .cta a:hover{
   background:#0f4c81;
   color:#f2b600;
-  border:2px solid #f2b600;
 }
 
 /* فوتر */
@@ -146,7 +160,7 @@ footer{
   padding:40px 15px;
 }
 
-/* دکمه اینستاگرام شناور */
+/* دکمه های شناور */
 #instagram{
   position:fixed;
   bottom:90px;
@@ -163,8 +177,6 @@ footer{
   background:#f2b600;
   color:#0f4c81;
 }
-
-/* دکمه واتساپ شناور */
 #whatsapp{
   position:fixed;
   bottom:20px;
@@ -186,6 +198,8 @@ footer{
 @media(max-width:768px){
   header h1{font-size:28px;}
   header p{font-size:16px;}
+  .video-item{height:220px;}
+  .gallery-item{height:150px;}
 }
 </style>
 </head>
@@ -195,7 +209,6 @@ footer{
 <h1>طراحی و نصب سیستم پیکور</h1>
 <p>مجموعه هیدروشیلنگ وحید متخصص نصب سیستم پیکور و چکش هیدرولیکی روی بیل مکانیکی</p>
 <a href="tel:09135568891" class="btn">تماس فوری: 09135568891</a>
-</header>
 
 <!-- کارت های خدمات -->
 <div class="container">
@@ -217,18 +230,20 @@ footer{
 <p>تحویل و نصب پروژه برای اجرای سریع کار دستگاه</p>
 </div>
 </div>
-  <!-- گالری عکس و ویدیو -->
-<div class="container gallery">
-<div class="gallery-item">
-  <img src="a6387368-03b5-4762-b41c-68e1f0cf0e41.jpg" alt="نصب سیستم پیکور" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
 </div>
-<div class="gallery-item">عکس/ویدیو 2</div>
-<div class="gallery-item">عکس/ویدیو 3</div>
-<div class="gallery-item">عکس/ویدیو 4</div>
-<div class="gallery-item">عکس/ویدیو 5</div>
-<div class="gallery-item">عکس/ویدیو 6</div>
-<div class="gallery-item">عکس/ویدیو 7</div>
-<div class="gallery-item">عکس/ویدیو 8</div>
+
+<!-- گالری عکس ها -->
+<div class="container gallery">
+<div class="gallery-item">عکس 1</div>
+<div class="gallery-item">عکس 2</div>
+<div class="gallery-item">عکس 3</div>
+<div class="gallery-item">عکس 4</div>
+</div>
+
+<!-- ویدیو ها -->
+<div class="container videos">
+<div class="video-item">ویدیو 1</div>
+<div class="video-item">ویدیو 2</div>
 </div>
 
 <!-- توضیحات بیشتر -->
@@ -260,5 +275,4 @@ footer{
 </footer>
 
 </body>
-</html>
-</div>
+</html></header>
