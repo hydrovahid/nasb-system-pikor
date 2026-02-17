@@ -1,3 +1,230 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>طراحی و نصب سیستم پیکور | هیدروشیلنگ وحید</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* فونت و بدنه */
+body{
+  margin:0;
+  font-family:'Vazirmatn',sans-serif;
+  background:#f0f2f5;
+  color:#222;
+  line-height:1.8;
+}
+
+/* هدر */
+header{
+  background:linear-gradient(135deg,#0f4c81,#f2b600);
+  color:white;
+  padding:80px 20px;
+  text-align:center;
+}
+header h1{
+  font-size:36px;
+  margin-bottom:15px;
+}
+header p{
+  font-size:18px;
+  margin-bottom:20px;
+}
+
+/* دکمه تماس */
+.btn{
+  display:inline-block;
+  background:#0f4c81;
+  color:white;
+  padding:12px 25px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+  border:2px solid #f2b600;
+  transition:0.3s;
+}
+.btn:hover{
+  background:#f2b600;
+  color:#0f4c81;
+}
+
+/* کانتینر */
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+  padding:60px 0;
+}
+
+/* کارت های خدمات */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+  margin-top:-50px;
+}
+.card{
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.15);
+  border:2px solid #0f4c81;
+  text-align:center;
+  transition:0.4s;
+}
+.card:hover{
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* بخش گالری عکس و ویدیو */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+  margin-bottom:40px;
+}
+.gallery-item{
+  background:#ddd;
+  height:150px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  color:#555;
+  transition:0.3s;
+}
+.gallery-item:hover{
+  transform:scale(1.05);
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* بخش توضیحات */
+.text-section{
+  background:white;
+  padding:40px 25px;
+  border-radius:15px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.1);
+  margin-bottom:60px;
+}
+
+/* CTA */
+.cta{
+  background:#0f4c81;
+  color:white;
+  text-align:center;
+  padding:60px 20px;
+  border-radius:15px;
+}
+.cta a{
+  display:inline-block;
+  background:#f2b600;
+  color:#0f4c81;
+  padding:14px 28px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+  margin-top:15px;
+  transition:0.3s;
+}
+.cta a:hover{
+  background:#0f4c81;
+  color:#f2b600;
+  border:2px solid #f2b600;
+}
+
+/* فوتر */
+footer{
+  background:#111;
+  color:#aaa;
+  text-align:center;
+  padding:40px 15px;
+}
+
+/* دکمه اینستاگرام شناور */
+#instagram{
+  position:fixed;
+  bottom:90px;
+  left:20px;
+  background:#E1306C;
+  color:white;
+  padding:15px 18px;
+  border-radius:50%;
+  text-decoration:none;
+  font-size:20px;
+  transition:0.3s;
+}
+#instagram:hover{
+  background:#f2b600;
+  color:#0f4c81;
+}
+
+/* دکمه واتساپ شناور */
+#whatsapp{
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  background:#25D366;
+  color:white;
+  padding:15px 18px;
+  border-radius:50%;
+  text-decoration:none;
+  font-size:20px;
+  transition:0.3s;
+}
+#whatsapp:hover{
+  background:#f2b600;
+  color:#0f4c81;
+}
+
+/* ریسپانسیو */
+@media(max-width:768px){
+  header h1{font-size:28px;}
+  header p{font-size:16px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>طراحی و نصب سیستم پیکور</h1>
+<p>مجموعه هیدروشیلنگ وحید متخصص نصب سیستم پیکور و چکش هیدرولیکی روی بیل مکانیکی</p>
+<a href="tel:09135568891" class="btn">تماس فوری: 09135568891</a>
+</header>
+
+<!-- کارت های خدمات -->
+<div class="container">
+<div class="services">
+<div class="card">
+<h3>خدمات حرفه‌ای</h3>
+<p>نصب اصولی سیستم پیکور با استاندارد مهندسی</p>
+</div>
+<div class="card">
+<h3>کیفیت تضمینی</h3>
+<p>استفاده از قطعات شیلنگ‌ها و لوله‌های با کیفیت</p>
+</div>
+<div class="card">
+<h3>ضمانت واقعی</h3>
+<p>پشتیبانی کامل پس از نصب</p>
+</div>
+<div class="card">
+<h3>اجرای سریع</h3>
+<p>تحویل و نصب پروژه برای اجرای سریع کار دستگاه</p>
+</div>
+</div>
+  <!-- گالری عکس و ویدیو -->
+<div class="container gallery">
+<div class="gallery-item">عکس/ویدیو 1</div>
+<div class="gallery-item">عکس/ویدیو 2</div>
+<div class="gallery-item">عکس/ویدیو 3</div>
+<div class="gallery-item">عکس/ویدیو 4</div>
+<div class="gallery-item">عکس/ویدیو 5</div>
+<div class="gallery-item">عکس/ویدیو 6</div>
+<div class="gallery-item">عکس/ویدیو 7</div>
+<div class="gallery-item">عکس/ویدیو 8</div>
+</div>
+
 <!-- توضیحات بیشتر -->
 <div class="container text-section">
 <p>
@@ -28,3 +255,4 @@
 
 </body>
 </html>
+</div>
