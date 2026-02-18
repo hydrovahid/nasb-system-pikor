@@ -14,23 +14,57 @@ body{
   line-height:1.8;
 }
 
-/* هدر */
+/* هدر با امکان تصویر پس‌زمینه و شفافیت */
 header{
-  background:#0f4c81;
+  background: #0f4c81; /* رنگ پیش‌فرض */
+  /* برای استفاده از تصویر پس‌زمینه، خط زیر را فعال کنید و مسیر تصویر را اصلاح نمایید */
+  /* background: url('images/header-bg.jpg') no-repeat center center / cover; */
   color:white;
   padding:80px 20px;
   text-align:center;
+  position: relative;
+}
+/* لایه overlay برای کاهش شفافیت تصویر پس‌زمینه (اگر تصویر اضافه شد، این لایه باید تیره تر باشد) */
+header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 76, 129, 0.85); /* شفافیت روی رنگ یا تصویر */
+  z-index: 0;
+}
+header * {
+  position: relative; /* مطمئن شدن از قرارگیری محتوا روی لایه overlay */
+  z-index: 1;
 }
 header h1{
   font-size:36px;
   margin-bottom:15px;
-  font-weight:700; /* تیتر بولد */
+  font-weight:700;
 }
 header p{
   font-size:18px;
   margin-bottom:20px;
 }
-/* دکمه تماس */
+
+/* دکمه تماس فوری - اصلاح شده مطابق درخواست */
+.call-btn-header {
+  display:inline-block;
+  background-color: white; /* کادر سفید */
+  color: #0f4c81; /* رنگ آبی هدر */
+  padding:12px 25px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:0.3s;
+  border: 2px solid transparent;
+}
+.call-btn-header:hover{
+  background-color: #0f4c81;
+  color: white;
+  border-color: #f2b600;
+}
+
+/* دکمه عمومی */
 .btn{
   display:inline-block;
   background:#0f4c81;
@@ -54,7 +88,7 @@ header p{
   padding:60px 0;
 }
 
-/* کارت های خدمات کوچک و حرفه‌ای */
+/* کارت های خدمات - بهبود جلوه ظاهری */
 .services{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
@@ -63,20 +97,20 @@ header p{
 }
 .card{
   background:white;
-  padding:20px;
+  padding:25px 20px;
   border-radius:12px;
-  box-shadow:0 6px 20px rgba(0,0,0,0.15);
+  box-shadow:0 8px 25px rgba(0,0,0,0.12); /* سایه بهبود یافته */
   text-align:center;
   transition:0.4s;
   border:2px solid transparent;
 }
 .card:hover{
-  transform:translateY(-8px) scale(1.03);
-  box-shadow:0 12px 30px rgba(0,0,0,0.25);
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 15px 35px rgba(0,0,0,0.2); /* سایه قوی‌تر در hover */
   border-color:#f2b600;
 }
 
-/* گالری عکس ها */
+/* گالری عکس ها - حذف دکمه مشاهده و تنظیم سایز */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -90,29 +124,23 @@ header p{
   position:relative;
   cursor:pointer;
   transition:0.3s;
+  /* ارتفاع ثابت برای کنترل اندازه */
+  height: 250px;
 }
 .gallery-item img{
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:cover; /* عکس بدون اعوجاج داخل کادر می‌شود */
   display:block;
   border-radius:12px;
+  transition: transform 0.3s;
 }
+.gallery-item:hover img {
+  transform: scale(1.05); /* زوم جزئی هنگام هاور */
+}
+/* حذف کامل متن "مشاهده" و overlay */
 .gallery-item::after{
-  content:"مشاهده";
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  background:rgba(15,76,129,0.7);
-  color:white;
-  padding:5px 15px;
-  border-radius:6px;
-  opacity:0;
-  transition:0.3s;
-}
-.gallery-item:hover::after{
-  opacity:1;
+  display: none;
 }
 
 /* ویدیو ها عمودی 9:16 */
@@ -144,168 +172,145 @@ header p{
 .text-section{
   background:white;
   padding:40px 25px;
-  border-radius:15px;
-  box-shadow:0 8px 25px rgba(0,0,0,0.1);
-  margin-bottom:60px;
+  border-radius:10px; /* اضافه شده برای زیبایی */
+  box-shadow:0 4px 15px rgba(0,0,0,0.08);
 }
 
-/* CTA */
-.cta{
-  background:#0f4c81;
-  color:white;
-  text-align:center;
-  padding:60px 20px;
-  border-radius:15px;
-}
-.cta a{
-  display:inline-block;
-  background:#f2b600;
+/* بخش های دیگر (برای اطمینان از وجود) */
+.section-title{
+  font-size:30px;
+  font-weight:700;
   color:#0f4c81;
-  padding:14px 28px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
-  margin-top:15px;
-  transition:0.3s;
-}
-.cta a:hover{
-  background:#0f4c81;
-  color:#f2b600;
+  margin-bottom:30px;
+  text-align:center;
 }
 
 /* فوتر */
 footer{
-  background:#111;
-  color:#aaa;
+  background:#222;
+  color:white;
   text-align:center;
-  padding:40px 15px;
+  padding:30px 0;
+  margin-top:50px;
+}
+.footer-links a{
+    color:#f2b600;
+    text-decoration:none;
+    margin:0 10px;
 }
 
-/* دکمه های شناور */
-#instagram{
-  position:fixed;
-  bottom:90px;
-  left:20px;
-  background:#E1306C;
-  color:white;
-  padding:15px 18px;
-  border-radius:50%;
-  text-decoration:none;
-  font-size:20px;
-  transition:0.3s;
-}
-#instagram:hover{
-  background:#f2b600;
-  color:#0f4c81;
-}
-#whatsapp{
-  position:fixed;
-  bottom:20px;
-  left:20px;
-  background:#25D366;
-  color:white;
-  padding:15px 18px;
-  border-radius:50%;
-  text-decoration:none;
-  font-size:20px;
-  transition:0.3s;
-}
-#whatsapp:hover{
-  background:#f2b600;
-  color:#0f4c81;
+/* مدیا کوئری ها */
+@media (max-width: 768px) {
+  header h1{
+    font-size:28px;
+  }
+  .services{
+    grid-template-columns:1fr; /* خدمات در موبایل تک ستونی */
+  }
+  .gallery{
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  }
+  .gallery-item{
+    height: 180px; /* کاهش ارتفاع در موبایل */
+  }
 }
 
-/* ریسپانسیو */
-@media(max-width:768px){
-  header h1{font-size:28px;}
-  header p{font-size:16px;}
-  .gallery-item img{height:150px;}
-}
 </style>
 </head>
 <body>
 
 <header>
-<h1>طراحی و نصب سیستم پیکور</h1>
-<p>مجموعه هیدروشیلنگ وحید متخصص نصب سیستم پیکور و چکش هیدرولیکی روی بیل مکانیکی</p>
-<a href="tel:09135568891" class="btn">تماس فوری: 09135568891</a>
+  <h1>نصب و طراحی سیستم‌های هیدرولیک پیکور</h1>
+  <p>تخصص ما در ارائه راه‌حل‌های بهینه و پیشرفته برای ماشین‌آلات سنگین شماست.</p>
+  <a href="tel:09123456789" class="call-btn-header">تماس فوری</a>
 </header>
 
-<!-- کارت های خدمات -->
 <div class="container">
-<div class="services">
-<div class="card">
-<h3>خدمات حرفه‌ای</h3>
-<p>نصب اصولی سیستم پیکور با استاندارد مهندسی</p>
-</div>
-<div class="card">
-<h3>کیفیت تضمینی</h3>
-<p>استفاده از قطعات شیلنگ‌ها و لوله‌های با کیفیت</p>
-</div>
-<div class="card">
-<h3>ضمانت واقعی</h3>
-<p>پشتیبانی کامل پس از نصب</p>
-</div>
-<div class="card">
-<h3>اجرای سریع</h3>
-<p>تحویل و نصب پروژه برای اجرای سریع کار دستگاه</p>
-</div>
-</div>
-</div>
+    
+    <section class="services-section">
+        <h2 class="section-title">خدمات ما</h2>
+        <div class="services">
+            <div class="card">
+                <h3>طراحی سیستم‌های سفارشی</h3>
+                <p>طراحی دقیق نقشه‌های هیدرولیک بر اساس نیاز پروژه.</p>
+                <a href="#" class="btn">بیشتر</a>
+            </div>
+            <div class="card">
+                <h3>نصب و راه‌اندازی</h3>
+                <p>نصب حرفه‌ای و تست کامل عملکرد سیستم‌های پیکور.</p>
+                <a href="#" class="btn">بیشتر</a>
+            </div>
+            <div class="card">
+                <h3>تعمیرات تخصصی</h3>
+                <p>عیب‌یابی و تعمیرات فوق تخصصی پمپ‌ها و شیرآلات.</p>
+                <a href="#" class="btn">بیشتر</a>
+            </div>
+            <div class="card">
+                <h3>تأمین قطعات اصلی</h3>
+                <p>ارائه قطعات یدکی اصلی با ضمانت اصالت کالا.</p>
+                <a href="#" class="btn">بیشتر</a>
+            </div>
+        </div>
+    </section>
 
-<!-- گالری عکس ها -->
-<div class="container gallery">
-<div class="gallery-item">
-  <img src="a6387368-03b5-4762-b41c-68e1f0cf0e41.jpg" alt="توضیح عکس 2" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
-</div>
-</div>
-<div class="gallery-item">
-  <img src="images/photo2.jpg" alt="عکس 2">
-</div>
-<div class="gallery-item">
-  <img src="images/photo3.jpg" alt="عکس 3">
-</div>
-<div class="gallery-item">
-  <img src="images/photo4.jpg" alt="عکس 4">
-</div>
-</div>
+    <section class="gallery-section">
+        <h2 class="section-title">پروژه‌های اخیر</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/600x400?text=Project+1" alt="پروژه نصب ۱">
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/600x400?text=Project+2" alt="پروژه نصب ۲">
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/600x400?text=Project+3" alt="پروژه نصب ۳">
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/600x400?text=Project+4" alt="پروژه نصب ۴">
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/600x400?text=Project+5" alt="پروژه نصب ۵">
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/600x400?text=Project+6" alt="پروژه نصب ۶">
+            </div>
+        </div>
+    </section>
 
-<!-- ویدیو ها عمودی 9:16 -->
-<div class="container videos">
-<div class="video-item">
-  <video src="WhatsApp Video 2025-12-25 at 10.41.04.mp4" controls></video>
-</div>
-<div class="video-item">
-  <video src="videos/video2.mp4" controls></video>
-</div>
-</div>
+    <section class="video-section">
+        <h2 class="section-title">ویدیوهای کاری</h2>
+        <div class="videos">
+            <div class="video-item">
+                <!-- فرض می‌شود یک تگ ویدیوی واقعی اینجا قرار گیرد -->
+                <video controls poster="https://via.placeholder.com/320x568?text=Video+Demo+1">
+                    <source src="sample_video.mp4" type="video/mp4">
+                    مرورگر شما از تگ ویدیو پشتیبانی نمی‌کند.
+                </video>
+            </div>
+             <div class="video-item">
+                <!-- فرض می‌شود یک تگ ویدیوی واقعی اینجا قرار گیرد -->
+                <video controls poster="https://via.placeholder.com/320x568?text=Video+Demo+2">
+                    <source src="sample_video.mp4" type="video/mp4">
+                    مرورگر شما از تگ ویدیو پشتیبانی نمی‌کند.
+                </video>
+            </div>
+        </div>
+    </section>
+    
+    <section class="text-section">
+        <h2 class="section-title">درباره ما</h2>
+        <p>هیدروشیلنگ وحید با سال‌ها تجربه در زمینه تجهیزات هیدرولیک، متعهد به ارائه بالاترین کیفیت خدمات در زمینه طراحی، نصب و نگهداری سیستم‌های پیکور برای انواع ماشین‌آلات صنعتی و راه‌سازی است. ما با بهره‌گیری از دانش روز و قطعات استاندارد، آماده‌ایم تا پروژه‌های شما را به بهترین نحو به سرانجام برسانیم.</p>
+        <a href="#" class="btn">تماس با ما</a>
+    </section>
 
-<!-- توضیحات بیشتر -->
-<div class="container text-section">
-<p>
-مجموعه هیدروشیلنگ وحید با مدیریت وحید ترکیان، بیش از 10 سال تجربه در نصب سیستم پیکور و چکش هیدرولیکی روی انواع بیل مکانیکی دارد. 
-تمام پروژه‌ها با رعایت کامل اصول فنی، استاندارد مهندسی و استفاده از شیلنگ‌ها و قطعات باکیفیت انجام می‌شود. 
-تیم ما تضمین می‌کند عملکرد پیکور حداکثر بازدهی را داشته باشد و هیچ آسیبی به سیستم هیدرولیک وارد نشود.
-</p>
-<p>
-ما آماده ارائه مشاوره رایگان قبل از نصب هستیم و در تمام مراحل پروژه همراه شما خواهیم بود. 
-اگر به دنبال نصب سیستم پیکور با کیفیت بالا، سرعت اجرای عالی و پشتیبانی واقعی هستید، همین حالا تماس بگیرید.
-</p>
 </div>
-
-<!-- CTA -->
-<div class="cta">
-<h2>ثبت سفارش نصب سیستم پیکور</h2>
-<a href="tel:09135568891">تماس با هیدروشیلنگ وحید</a>
-</div>
-
-<!-- دکمه های شناور -->
-<a href="https://instagram.com/Hydrovahid" id="instagram" target="_blank">📷</a>
-<a href="https://wa.me/989135568891" id="whatsapp">💬</a>
 
 <footer>
-<p>© 2026 هیدروشیلنگ وحید</p>
-<p>اینستاگرام: @Hydrovahid</p>
+    <p>&copy; 2026 هیدروشیلنگ وحید. تمامی حقوق محفوظ است.</p>
+    <div class="footer-links">
+        <a href="tel:09123456789">تلفن تماس</a> |
+        <a href="#">آدرس</a>
+    </div>
 </footer>
 
 </body>
