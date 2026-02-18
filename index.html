@@ -4,126 +4,102 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>طراحی و نصب سیستم پیکور | هیدروشیلنگ وحید</title>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
 body{
   margin:0;
   font-family:'Vazirmatn',sans-serif;
-  background:#ffffff;
+  background:#fff;
   color:#222;
-  line-height:1.8;
+  line-height:1.9;
 }
 
-/* ===== هدر با تصویر و افکت تیره ===== */
+/* ===== Scroll Animation ===== */
+.hidden{
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.8s ease;
+}
+.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ===== Header ===== */
 header{
   position:relative;
   background:url("header.jpg") center/cover no-repeat;
-  color:white;
-  padding:100px 20px;
+  padding:110px 20px;
   text-align:center;
+  color:#fff;
 }
 header::before{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(15,76,129,0.85);
+  background:rgba(15,76,129,0.88);
 }
-header *{
-  position:relative;
-  z-index:2;
-}
+header *{position:relative;z-index:2;}
 header h1{
-  font-size:40px;
-  font-weight:700;
-  margin-bottom:15px;
+  font-size:42px;
+  font-weight:900;
 }
-header p{
-  font-size:18px;
-  margin-bottom:25px;
-}
-
-/* دکمه تماس سفید */
-.btn{
+header p{margin-top:10px;}
+.header-btn{
   display:inline-block;
-  background:white;
+  margin-top:25px;
+  background:#fff;
   color:#0f4c81;
-  padding:12px 25px;
+  padding:12px 28px;
   border-radius:8px;
-  text-decoration:none;
   font-weight:bold;
-  transition:0.3s;
-}
-.btn:hover{
-  background:#f2b600;
-  color:#0f4c81;
+  text-decoration:none;
 }
 
-/* ===== کانتینر ===== */
+/* ===== Container ===== */
 .container{
   width:90%;
   max-width:1100px;
   margin:auto;
-  padding:60px 0;
+  padding:70px 0;
 }
-
-/* ===== تیتر سکشن ===== */
 .section-title{
-  font-size:26px;
-  font-weight:700;
-  margin-bottom:30px;
   text-align:center;
+  font-size:26px;
+  font-weight:800;
+  margin-bottom:35px;
 }
 
-/* ===== کارت خدمات حرفه‌ای ===== */
+/* ===== Services ===== */
 .services{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:25px;
 }
-
 .card{
-  background:white;
+  background:#fff;
   padding:25px;
   border-radius:14px;
   box-shadow:0 10px 25px rgba(0,0,0,0.1);
   transition:0.3s;
-  position:relative;
-  overflow:hidden;
-}
-.card::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:5px;
-  background:linear-gradient(90deg,#0f4c81,#f2b600);
 }
 .card:hover{
   transform:translateY(-6px);
-  box-shadow:0 18px 35px rgba(0,0,0,0.2);
-}
-.card h3{
-  margin-top:10px;
 }
 .more-btn{
   display:inline-block;
   margin-top:15px;
   background:#0f4c81;
-  color:white;
-  padding:6px 14px;
+  color:#fff;
+  padding:6px 16px;
   border-radius:6px;
   font-size:14px;
   text-decoration:none;
-  transition:0.3s;
-}
-.more-btn:hover{
-  background:#f2b600;
-  color:#0f4c81;
 }
 
-/* ===== گالری عکس ===== */
+/* ===== Gallery ===== */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -132,16 +108,14 @@ header p{
 .gallery-item{
   border-radius:12px;
   overflow:hidden;
-  max-height:250px;
 }
 .gallery-item img{
   width:100%;
-  height:250px;
+  height:240px;
   object-fit:cover;
-  display:block;
 }
 
-/* ===== ویدیو 9:16 ===== */
+/* ===== Videos 9:16 ===== */
 .videos{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -156,29 +130,40 @@ header p{
 }
 .video-item video{
   position:absolute;
-  top:0;
-  left:0;
+  inset:0;
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-/* ===== متن توضیحات ===== */
-.text-section{
-  background:white;
+/* ===== About ===== */
+.about{
+  background:#fff;
   padding:40px;
-  border-radius:15px;
+  border-radius:16px;
   box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
-/* ===== فوتر ===== */
+/* ===== Footer ===== */
 footer{
   background:#111;
   color:#aaa;
   text-align:center;
   padding:40px 15px;
-  margin-top:60px;
 }
+
+/* ===== Floating Buttons ===== */
+#instagram,#whatsapp{
+  position:fixed;
+  left:20px;
+  color:#fff;
+  padding:15px;
+  border-radius:50%;
+  font-size:20px;
+  text-decoration:none;
+}
+#instagram{bottom:90px;background:#E1306C;}
+#whatsapp{bottom:20px;background:#25D366;}
 
 @media(max-width:768px){
   header h1{font-size:28px;}
@@ -189,54 +174,77 @@ footer{
 <body>
 
 <header>
-<h1>طراحی و نصب سیستم پیکور</h1>
-<p>مجموعه هیدروشیلنگ وحید متخصص نصب سیستم پیکور روی بیل مکانیکی</p>
-<a href="tel:09135568891" class="btn">تماس فوری: 09135568891</a>
+  <h1>طراحی و نصب سیستم پیکور</h1>
+  <p>نصب تخصصی سیستم پیکور و چکش هیدرولیکی</p>
+  <a href="tel:09135568891" class="header-btn">تماس فوری 09135568891</a>
 </header>
 
-<!-- خدمات -->
+<!-- Services -->
 <div class="container">
-<h2 class="section-title">خدمات ما</h2>
-<div class="services">
-<div class="card">
-<h3>نصب سیستم پیکور</h3>
-<p>نصب اصولی با رعایت کامل استانداردهای مهندسی.</p>
-<a href="#" class="more-btn">بیشتر...</a>
+  <h2 class="section-title">خدمات ما</h2>
+  <div class="services">
+    <div class="card"><h3>خدمات حرفه‌ای</h3><p>نصب اصولی سیستم پیکور با استاندارد مهندسی</p><a class="more-btn">بیشتر...</a></div>
+    <div class="card"><h3>کیفیت تضمینی</h3><p>استفاده از شیلنگ و لوله‌های با کیفیت</p><a class="more-btn">بیشتر...</a></div>
+    <div class="card"><h3>ضمانت واقعی</h3><p>پشتیبانی کامل پس از نصب</p><a class="more-btn">بیشتر...</a></div>
+    <div class="card"><h3>اجرای سریع</h3><p>تحویل سریع پروژه</p><a class="more-btn">بیشتر...</a></div>
+  </div>
 </div>
-<div class="card">
-<h3>تامین شیلنگ فشار قوی</h3>
-<p>استفاده از قطعات درجه یک و مقاوم.</p>
-<a href="#" class="more-btn">بیشتر...</a>
-</div>
-<div class="card">
-<h3>پشتیبانی و سرویس</h3>
-<p>پشتیبانی کامل بعد از نصب پروژه.</p>
-<a href="#" class="more-btn">بیشتر...</a>
-</div>
-</div>
-</div>
-<!-- پروژه ها -->
+<!-- Gallery -->
 <div class="container">
-<h2 class="section-title">پروژه‌های اخیر</h2>
-<div class="gallery">
-<div class="gallery-item"><img src="a6387368-03b5-4762-b41c-68e1f0cf0e41.jpg"></div>
-<div class="gallery-item"><img src="images/photo2.jpg"></div>
-<div class="gallery-item"><img src="images/photo3.jpg"></div>
-<div class="gallery-item"><img src="images/photo4.jpg"></div>
-</div>
+  <h2 class="section-title">پروژه‌های اخیر</h2>
+  <div class="gallery">
+    <div class="gallery-item"><img src="a6387368-03b5-4762-b41c-68e1f0cf0e41.jpg"></div>
+    <div class="gallery-item"><img src="images/photo2.jpg"></div>
+    <div class="gallery-item"><img src="images/photo3.jpg"></div>
+    <div class="gallery-item"><img src="images/photo4.jpg"></div>
+  </div>
 </div>
 
-<!-- ویدیوها -->
+<!-- Videos -->
 <div class="container">
-<div class="videos">
-<div class="video-item"><video src="WhatsApp Video 2025-12-25 at 10.41.04.mp4" controls></video></div>
-<div class="video-item"><video src="videos/video2.mp4" controls></video></div>
+  <h2 class="section-title">ویدیوهای پروژه</h2>
+  <div class="videos">
+    <div class="video-item"><video src="WhatsApp Video 2025-12-25 at 10.41.04.mp4" controls></video></div>
+    <div class="video-item"><video src="videos/video2.mp4" controls></video></div>
+    <div class="video-item"><video src="videos/video3.mp4" controls></video></div>
+    <div class="video-item"><video src="videos/video4.mp4" controls></video></div>
+  </div>
 </div>
+
+<!-- About -->
+<div class="container">
+  <div class="about">
+    <h2 class="section-title">درباره ما</h2>
+    <p>
+      هیدروشیلنگ وحید با تجربه تخصصی در طراحی و نصب سیستم پیکور و چکش هیدرولیکی،
+      خدماتی دقیق، ایمن و حرفه‌ای برای بیل‌های مکانیکی ارائه می‌دهد.
+    </p>
+  </div>
 </div>
 
 <footer>
-© 2026 هیدروشیلنگ وحید
+  <p>© هیدروشیلنگ وحید</p>
+  <p>Instagram: @Hydrovahid</p>
 </footer>
+
+<a id="instagram" href="https://instagram.com/Hydrovahid" target="_blank">📷</a>
+<a id="whatsapp" href="https://wa.me/989135568891">💬</a>
+
+<!-- Scroll Script -->
+<script>
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+});
+document.querySelectorAll(".card,.gallery-item,.video-item,.about,.section-title")
+.forEach(el=>{
+  el.classList.add("hidden");
+  observer.observe(el);
+});
+</script>
 
 </body>
 </html>
