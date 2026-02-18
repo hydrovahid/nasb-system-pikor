@@ -285,7 +285,19 @@ document.querySelectorAll(".card,.gallery-item,.video-item,.about,.section-title
   el.classList.add("hidden");
   observer.observe(el);
 });
+<script>
+function forceLightMode() {
+  if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+    document.documentElement.style.backgroundColor = "#ffffff";
+    document.documentElement.style.color = "#222";
+    document.body.style.backgroundColor = "#ffffff";
+    document.body.style.color = "#222";
+  }
+}
+// بررسی اولیه
+forceLightMode();
+// بررسی تغییر حالت کاربر در حین استفاده
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', forceLightMode);
 </script>
-
 </body>
 </html>
