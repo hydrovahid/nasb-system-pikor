@@ -115,6 +115,22 @@ header p{margin-top:10px;}
   object-fit:cover;
 }
 
+/* گالری عکس */
+.gallery-item img{
+  width:100%;
+  height:240px;        /* دسکتاپ */
+  object-fit:cover;    /* عکس برش میخوره و فیت کادر میشه */
+  border-radius:12px;
+}
+
+/* موبایل */
+@media(max-width:768px){
+  .gallery-item img{
+    height:auto;        /* ارتفاع خود عکس */
+    max-width:100%;     /* عرض کامل */
+    object-fit:contain; /* کامل داخل کادر باشه و برش نخوره */
+  }
+}
 /* ===== Videos 9:16 ===== */
 .videos{
   display:grid;
