@@ -13,8 +13,16 @@
 body{
   margin:0;
   font-family:'Vazirmatn',sans-serif;
-  background:#fff;
-  color:#222;
+ html {
+  background-color: #ffffff !important;
+  color: #222 !important;
+  /* این خط باعث میشه مرورگر Dark Mode رو اعمال نکنه */
+  forced-color-adjust: none;
+}
+body {
+  background-color: #ffffff !important;
+  color: #222 !important;
+}
   line-height:1.9;
 }
 
